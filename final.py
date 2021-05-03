@@ -51,7 +51,7 @@ class Carpool:
             self.G.add_node(person)
             for day in person.days:
                 self.G.add_edge(person, day, capacity=1, flow=0)
-            capacity = math.ceil(self.getResponibility(person))
+            capacity = math.ceil(self.getResponsibility(person))
             self.G.add_edge("Source", person, capacity=capacity, flow=0)
 
         return saturated_edges
@@ -81,7 +81,7 @@ class Carpool:
 
         return True
 
-    def getResponibility(self, person):
+    def getResponsibility(self, person):
         total = 0
         for day in person.days:
             total += 1 / self.daysDict[day]
